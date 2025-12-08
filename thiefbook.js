@@ -22,13 +22,16 @@
 
     var newStyle = document.createElement("style");
     newStyle.innerHTML =
+        '        :root {' +
+        '            --thief-book-font-size: 12px;' +
+        '        }' +
         '        .thief-book-line-box {\n' +
         '            position: fixed;\n' +
         '            left: 0;\n' +
         '            bottom: 0px;\n' +
         '        }\n' +
         '        .thief-book-line {\n' +
-        '            font-size: 11px;\n' +
+        '            font-size: var(--thief-book-font-size);\n' +
         '            text-align:left;\n' +
         '            background-color: rgb(222,225,230);\n' +
         '            height: 23px;\n' +
@@ -171,6 +174,12 @@
         '        <label>\n' +
         '            <div id="thief-book-showMouseShortcuts" class="thief-book-icon" title="是否显示鼠标点击用的快捷按钮\n在快捷按钮区滚动滚轮也可以翻页">&#128433;</div>' +
         '        </label>\n' +
+        '        <label>\n' +
+        '            <div id="thief-book-increaseFontsize" class="thief-book-icon" title="加大字号">➕️</div>' +
+        '        </label>\n' +
+        '        <label>\n' +
+        '            <div id="thief-book-decreaseFontsize" class="thief-book-icon" title="缩小字号">➖️</div>' +
+        '        </label>\n' +
         '    </div>\n' +
         '    <div id="thief-book-lineBox" class="thief-book-line-box"></div>\n' +
         '</div>\n' +
@@ -279,6 +288,16 @@
     document.getElementById('thief-book-changecoder')
         .addEventListener('click', function(){
         tryFileCoder();
+    })
+    document.getElementById('thief-book-showMouseShortcuts')
+        .addEventListener('click', function(){
+        showMouseShortcuts = !showMouseShortcuts;
+        printLine();
+    })
+    document.getElementById('thief-book-increaseFontsize')
+        .addEventListener('click', function(){
+          const currentValue = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--thief-book-font-size")) || 12;
+          document.documentElement.style.setProperty("--thief-book-font-size", `${currentValue + 1}px`);
     })
     document.getElementById('thief-book-showMouseShortcuts')
         .addEventListener('click', function(){
