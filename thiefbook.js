@@ -5,7 +5,7 @@
     let pointer = 0;
     let keyNextLine = 'Period';
     let keyPreLine = 'Comma';
-    let keyHide = 'F1';//'Minus'; 减号在网页中还是要经常使用的，换F1键控制开关
+    let keyHide = 'F2';//'Minus'; 减号在网页中还是要经常使用的，换F1键控制开关
     let keyTimer = 'Enter';//定时滚屏还是需要的，加个快捷键
     let hide = false;//打开后默认显示界面
     let progress = 0;
